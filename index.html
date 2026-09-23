@@ -1,381 +1,341 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Regen Center — Optimisation Mitochondriale · Mudaison</title>
-  <style>
-    :root {
-      --navy:    #0D1628;
-      --navy2:   #111D35;
-      --gold:    #C9A227;
-      --gold-lt: #E8C96A;
-      --white:   #FFFFFF;
-      --gray:    #8A9AB5;
-      --gray-lt: #C5CFE0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regen Center — Optimisation Mitochondriale · Mudaison</title>
+<meta name="description" content="Regen Center, premier centre dédié à l'optimisation mitochondriale à Mudaison (Hérault). Vitalité, récupération et longévité.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#102A2E;
+    --ink-soft:#3E575A;
+    --paper:#F2F5F3;
+    --mist:#E3EBE8;
+    --red:#B8322A;
+    --red-glow:#E0573F;
+    --sand:#E6DDCC;
+    --white:#FFFFFF;
+    --serif:"Newsreader", Georgia, "Times New Roman", serif;
+    --sans:"Manrope", "Helvetica Neue", Arial, sans-serif;
+    --wrap:1160px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img,video{max-width:100%;display:block}
+  a{color:inherit}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--red-glow);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { background-color: var(--navy); color: var(--white); font-family: 'Georgia', serif; line-height: 1.7; }
+  /* NAV */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(16,42,46,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--white)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{font-family:var(--serif);font-size:1.5rem;text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--red-glow);box-shadow:0 0 14px 3px rgba(224,87,63,.6)}
+  .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;align-items:center}
+  .nav ul a{text-decoration:none;font-size:.95rem;opacity:.85}
+  .nav ul a:hover{opacity:1}
+  .nav ul a.cta{opacity:1;background:var(--red);padding:9px 18px;border-radius:999px;font-weight:600}
+  .nav ul a.cta:hover{background:var(--red-glow)}
+  .burger{display:none;background:none;border:0;color:var(--white);font-size:1.6rem;cursor:pointer}
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 18px 60px;
-      background: rgba(13,22,40,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(201,162,39,0.08);
-    }
-    .nav-logo { font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; }
-    .nav-logo span { color: var(--gold); }
-    nav ul { list-style: none; display: flex; gap: 36px; }
-    nav ul a { color: var(--gray-lt); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
-    nav ul a:hover { color: var(--gold); }
-    .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 9px 20px; border-radius: 3px; font-weight: bold !important; }
-    .nav-cta:hover { background: var(--gold-lt) !important; }
+  /* HERO */
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;color:var(--white);overflow:hidden;background:var(--ink)}
+  .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,42,46,.92) 0%,rgba(16,42,46,.75) 50%,rgba(16,42,46,.35) 100%),linear-gradient(180deg,rgba(16,42,46,.35) 0%,rgba(16,42,46,.9) 100%)}
+  .hero h1,.hero p{text-shadow:0 2px 18px rgba(0,0,0,.45)}
+  .hero .wrap{position:relative;z-index:2;width:100%;padding-top:140px;padding-bottom:90px}
+  .hero .kicker{font-size:.95rem;opacity:.85;margin:0 0 18px}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.8rem,7vw,5.6rem);line-height:1.02;margin:0 0 22px;max-width:14ch}
+  .hero h1 em{font-style:italic;color:#F3B5A6}
+  .hero .loc{margin:0 0 14px;font-weight:600}
+  .hero p.lead{max-width:56ch;font-size:1.15rem;opacity:.92;margin:0 0 34px}
+  .btns{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:600;padding:14px 26px;border-radius:999px;transition:background .2s}
+  .btn.primary{background:var(--red);color:var(--white)}
+  .btn.primary:hover{background:var(--red-glow)}
+  .btn.ghost{border:1px solid rgba(255,255,255,.6);color:var(--white)}
+  .btn.ghost:hover{background:rgba(255,255,255,.1)}
 
-    /* ── HERO avec vidéo ── */
-    #hero {
-      min-height: 100vh;
-      position: relative;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: flex-start;
-      padding: 140px 60px 80px;
-      overflow: hidden;
-    }
-    .hero-video-wrap {
-      position: absolute; inset: 0; z-index: 0;
-      background: var(--navy);
-    }
-    .hero-video-wrap video {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      opacity: 0.35;
-    }
-    .hero-video-wrap::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(13,22,40,0.95) 40%, rgba(13,22,40,0.3) 100%);
-    }
-    .hero-content { position: relative; z-index: 1; }
-    .hero-accent { width: 50px; height: 3px; background: var(--gold); margin-bottom: 28px; }
-    .hero-label { font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-    .hero-title { font-size: clamp(2.8rem, 5vw, 4.4rem); font-weight: 700; line-height: 1.12; max-width: 600px; margin-bottom: 22px; }
-    .hero-title em { font-style: normal; color: var(--gold); }
-    .hero-sub { font-size: 1.05rem; color: var(--gray-lt); max-width: 500px; margin-bottom: 40px; line-height: 1.85; }
-    .hero-location { font-size: 0.78rem; color: var(--gray); letter-spacing: 0.1em; margin-bottom: 36px; }
-    .hero-location span { color: var(--gold-lt); }
+  /* SECTIONS */
+  section{padding:110px 0}
+  .eyebrow{color:var(--red);font-weight:600;font-size:.95rem;margin:0 0 12px}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4.2vw,3.2rem);line-height:1.1;margin:0 0 22px;max-width:22ch}
+  .intro{max-width:62ch;color:var(--ink-soft);font-size:1.08rem;margin:0 0 50px}
 
-    /* ── BUTTONS ── */
-    .btn-gold {
-      display: inline-block; background: var(--gold); color: var(--navy);
-      font-family: 'Georgia', serif; font-weight: bold; font-size: 0.85rem;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 16px 38px; border-radius: 3px; text-decoration: none;
-      transition: background 0.3s, transform 0.2s;
-    }
-    .btn-gold:hover { background: var(--gold-lt); transform: translateY(-2px); }
-    .btn-outline {
-      display: inline-block; border: 1px solid var(--gold); color: var(--gold);
-      font-family: 'Georgia', serif; font-size: 0.85rem; letter-spacing: 0.12em;
-      text-transform: uppercase; padding: 15px 36px; border-radius: 3px;
-      text-decoration: none; margin-left: 14px; transition: all 0.3s;
-    }
-    .btn-outline:hover { background: rgba(201,162,39,0.1); }
+  /* CONCEPT */
+  #concept .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:center}
+  #concept .text p{max-width:58ch;color:var(--ink-soft)}
+  #concept blockquote{font-family:var(--serif);font-style:italic;font-size:1.7rem;line-height:1.3;margin:32px 0;padding-left:22px;border-left:3px solid var(--red);color:var(--ink)}
+  #concept .photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px}
 
-    /* ── SECTIONS ── */
-    section { padding: 100px 60px; }
-    .section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
-    .section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; margin-bottom: 16px; line-height: 1.25; }
-    .section-line { width: 44px; height: 2px; background: var(--gold); margin-bottom: 28px; }
-    .section-intro { font-size: 1rem; color: var(--gray-lt); max-width: 620px; line-height: 1.85; }
+  /* PILIERS */
+  #piliers{background:var(--ink);color:var(--white)}
+  #piliers .intro{color:rgba(255,255,255,.75)}
+  .piliers{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .pilier{display:flex;flex-direction:column;padding:30px 26px;border:1px solid rgba(255,255,255,.16);border-radius:6px;background:rgba(255,255,255,.03)}
+  .pilier .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+  .pilier .num{font-family:var(--serif);font-size:2.6rem;line-height:1;color:var(--red-glow)}
+  .pilier .ico{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:1.5rem;line-height:1}
+  .pilier h3{font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:1.2;margin:0 0 14px;white-space:nowrap}
+  .pilier p{color:rgba(255,255,255,.78);font-size:.97rem;margin:0 0 22px;flex:1}
+  .pilier .tags{font-size:.85rem;color:#F3B5A6;border-top:1px solid rgba(255,255,255,.16);padding-top:14px;min-height:4.4em}
 
-    /* ── CONCEPT ── */
-    #concept {
-      background: var(--navy2);
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-    }
-    .concept-photo {
-      height: 500px; border-radius: 4px; overflow: hidden; position: relative;
-    }
-    .concept-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .concept-photo-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(13,22,40,0.5) 0%, transparent 60%);
-    }
-    .concept-text p { color: var(--gray-lt); margin-bottom: 20px; line-height: 1.85; }
-    .concept-quote {
-      border-left: 3px solid var(--gold); padding-left: 20px; margin: 28px 0;
-      font-style: italic; color: var(--gold-lt); font-size: 1.05rem;
-    }
+  /* MACHINES */
+  .machines{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .machine video{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:6px;background:var(--ink)}
+  .machine h3{font-family:var(--serif);font-weight:500;font-size:1.6rem;margin:22px 0 8px}
+  .machine p{color:var(--ink-soft);margin:0;max-width:52ch}
 
-    /* ── 4 PILIERS ── */
-    #piliers { background: var(--navy); }
-    .piliers-header { text-align: center; margin-bottom: 70px; }
-    .piliers-header .section-line { margin: 0 auto 28px; }
-    .piliers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
-    .pilier-card {
-      background: var(--navy2); border: 1px solid rgba(201,162,39,0.15);
-      border-radius: 4px; padding: 38px 26px; transition: border-color 0.3s, transform 0.3s;
-      position: relative; overflow: hidden;
-    }
-    .pilier-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
-    }
-    .pilier-card:hover::before { transform: scaleX(1); }
-    .pilier-card:hover { border-color: rgba(201,162,39,0.4); transform: translateY(-4px); }
-    .pilier-number { font-size: 2.6rem; font-weight: 700; color: rgba(201,162,39,0.15); line-height: 1; margin-bottom: 14px; }
-    .pilier-icon { font-size: 1.9rem; margin-bottom: 16px; }
-    .pilier-title { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 12px; letter-spacing: 0.04em; }
-    .pilier-desc { font-size: 0.86rem; color: var(--gray); line-height: 1.75; }
-    .pilier-tag {
-      display: inline-block; margin-top: 16px; padding: 4px 10px;
-      border: 1px solid rgba(201,162,39,0.3); color: var(--gold);
-      font-size: 0.63rem; letter-spacing: 0.15em; text-transform: uppercase; border-radius: 2px;
-    }
+  /* ESPACES */
+  #espaces{background:var(--mist)}
+  #espaces video{width:100%;height:auto;border-radius:6px;background:var(--ink)}
 
-    /* ── VIDÉOS / MACHINES ── */
-    #machines { background: var(--navy2); }
-    .machines-intro { max-width: 680px; margin-bottom: 60px; }
-    .machines-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1100px; }
-    .machine-video-card {
-      border-radius: 4px; overflow: hidden; position: relative;
-      background: #0a1220; border: 1px solid rgba(201,162,39,0.12);
-    }
-    .machine-video-card video {
-      width: 100%; display: block;
-      max-height: 320px; object-fit: cover;
-    }
-    .machine-video-label {
-      padding: 18px 22px;
-    }
-    .machine-video-label h3 { font-size: 1rem; margin-bottom: 6px; }
-    .machine-video-label p { font-size: 0.83rem; color: var(--gray); line-height: 1.6; }
+  /* POUR QUI */
+  .cibles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:60px}
+  .cible{display:flex;flex-direction:column;background:var(--white);padding:30px 24px;border:1px solid #D5DFDB;border-radius:6px;box-shadow:inset 0 3px 0 var(--red)}
+  .cible .ico{width:52px;height:52px;border-radius:50%;background:var(--mist);display:flex;align-items:center;justify-content:center;font-size:1.5rem;line-height:1;margin-bottom:20px}
+  .cible h3{font-family:var(--serif);font-weight:500;font-size:1.1rem;line-height:1.2;margin:0 0 12px;white-space:nowrap}
+  .cible p{color:var(--ink-soft);font-size:.96rem;margin:0}
+  .pourqui-video{width:100%;height:auto;border-radius:6px;background:var(--ink)}
 
-    /* ── GALERIE PHOTO ── */
-    #galerie { background: var(--navy); }
-    .galerie-single {
-      margin-top: 44px; max-width: 900px;
-      border-radius: 4px; overflow: hidden;
-      border: 1px solid rgba(201,162,39,0.12);
-    }
-    .galerie-single img { width: 100%; height: 500px; object-fit: cover; display: block; }
+  /* RDV */
+  #rdv{background:var(--sand)}
+  .salles{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .salle{display:flex;flex-direction:column;text-decoration:none;background:var(--white);padding:26px 20px 22px;border:1px solid #D9CFBC;border-radius:6px;box-shadow:inset 0 3px 0 var(--red);transition:transform .2s}
+  .salle:hover{transform:translateY(-3px)}
+  .salle .n{color:var(--red);font-weight:700;font-size:.9rem;margin-bottom:8px}
+  .salle h3{font-family:var(--serif);font-weight:500;font-size:1.1rem;line-height:1.2;margin:0 0 12px;white-space:nowrap}
+  .salle p{color:var(--ink-soft);font-size:.92rem;margin:0 0 20px;flex:1}
+  .salle .go{display:block;text-align:center;font-weight:600;color:var(--white);background:var(--red);padding:10px 12px;border-radius:999px;font-size:.92rem}
+  .salle:hover .go{background:var(--red-glow)}
+  .linktree{margin-top:40px;text-align:center;color:var(--ink-soft)}
+  .linktree a{color:var(--red);font-weight:600}
 
-    /* ── POUR QUI ── */
-    #pour-qui {
-      background: var(--navy2);
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
-    }
-    .audiences { display: flex; flex-direction: column; gap: 14px; margin-top: 38px; }
-    .audience-item {
-      display: flex; align-items: flex-start; gap: 16px; padding: 18px 20px;
-      background: var(--navy); border-radius: 3px; border-left: 3px solid transparent; transition: border-color 0.3s;
-    }
-    .audience-item:hover { border-left-color: var(--gold); }
-    .audience-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
-    .audience-title { font-weight: bold; font-size: 0.94rem; margin-bottom: 4px; }
-    .audience-desc { font-size: 0.83rem; color: var(--gray); }
-    .pour-qui-video {
-      border-radius: 4px; overflow: hidden; border: 1px solid rgba(201,162,39,0.12);
-    }
-    .pour-qui-video video { width: 100%; display: block; max-height: 520px; object-fit: cover; }
+  /* FOOTER */
+  footer{background:var(--ink);color:rgba(255,255,255,.82);padding:80px 0 30px}
+  .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:50px;margin-bottom:60px}
+  footer .fbrand{font-family:var(--serif);font-size:1.8rem;color:var(--white);margin:0 0 12px}
+  footer h4{color:var(--white);font-size:1rem;margin:0 0 16px}
+  footer ul{list-style:none;padding:0;margin:0}
+  footer li{margin-bottom:10px}
+  footer a{text-decoration:none}
+  footer a:hover{color:var(--white);text-decoration:underline}
+  .legal{border-top:1px solid rgba(255,255,255,.15);padding-top:24px;font-size:.85rem;color:rgba(255,255,255,.6)}
 
-    /* ── RDV ── */
-    #rdv { background: linear-gradient(135deg, #111D35 0%, #0D1628 100%); }
-    #rdv .section-line { margin-bottom: 28px; }
-    .rdv-sub { font-size: 1rem; color: var(--gray-lt); max-width: 540px; margin-bottom: 54px; line-height: 1.85; }
-    .salles-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; max-width: 1200px; margin-bottom: 48px; }
-    .salle-card {
-      background: var(--navy2); border: 1px solid rgba(201,162,39,0.15);
-      border-radius: 4px; padding: 28px 20px; text-decoration: none;
-      transition: border-color 0.3s, transform 0.3s; display: block;
-      position: relative; overflow: hidden;
-    }
-    .salle-card::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-      background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
-    }
-    .salle-card:hover::after { transform: scaleX(1); }
-    .salle-card:hover { border-color: rgba(201,162,39,0.45); transform: translateY(-3px); }
-    .salle-num { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-    .salle-name { font-size: 0.9rem; font-weight: bold; color: var(--white); margin-bottom: 10px; line-height: 1.4; }
-    .salle-desc { font-size: 0.75rem; color: var(--gray); line-height: 1.6; }
-    .salle-cta { display: inline-block; margin-top: 14px; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.1em; }
-    .rdv-linktree {
-      text-align: center; padding-top: 16px;
-      font-size: 0.82rem; color: var(--gray);
-    }
-    .rdv-linktree a { color: var(--gold-lt); text-decoration: none; }
+  /* RESPONSIVE */
+  @media (max-width:1100px){
+    .pilier h3,.cible h3,.salle h3{white-space:normal}
+  }
+  @media (max-width:1000px){
+    .piliers{grid-template-columns:1fr 1fr}
+    .cibles{grid-template-columns:1fr 1fr}
+    .salles{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:820px){
+    .burger{display:block}
+    .nav ul{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--ink);padding:10px 0 20px}
+    .nav ul.open{display:flex}
+    .nav ul li{width:100%;text-align:center}
+    .nav ul a{display:block;padding:12px}
+    .nav ul a.cta{display:inline-block;margin-top:8px}
+    #concept .grid,.machines,.fgrid{grid-template-columns:1fr;gap:40px}
+    section{padding:80px 0}
+  }
+  @media (max-width:560px){
+    .piliers,.cibles,.salles{grid-template-columns:1fr}
+    .pilier .tags{min-height:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .salle{transition:none}
+  }
 
-    /* ── FOOTER ── */
-    footer {
-      background: #080F1E; padding: 50px 60px 30px;
-      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;
-      border-top: 1px solid rgba(201,162,39,0.1);
-    }
-    .footer-brand p { font-size: 0.82rem; color: var(--gray); line-height: 1.7; margin-top: 12px; }
-    footer h4 { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-    footer ul { list-style: none; }
-    footer ul li { font-size: 0.83rem; color: var(--gray); margin-bottom: 8px; }
-    footer ul a { color: var(--gray); text-decoration: none; transition: color 0.3s; }
-    footer ul a:hover { color: var(--gold-lt); }
-    .footer-bottom {
-      text-align: center; padding: 22px 60px;
-      background: #080F1E; font-size: 0.7rem; color: var(--gray);
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
+  /* HERO CINEMATIQUE */
+  .hero.cine{display:block;min-height:auto;background:var(--paper)}
+  .hero.cine::after{display:none}
+  .cine .stage{position:relative;height:100vh;height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--paper)}
+  .cine .frame{position:absolute;inset:0;overflow:hidden;background:var(--ink);will-change:transform,border-radius}
+  .cine .frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+  .cine .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,42,46,.93) 0%,rgba(16,42,46,.72) 50%,rgba(16,42,46,.3) 100%),linear-gradient(180deg,rgba(16,42,46,.3) 0%,rgba(16,42,46,.9) 100%)}
+  .cine .light{position:absolute;inset:0;pointer-events:none;background:radial-gradient(520px circle at var(--mx,70%) var(--my,30%),rgba(224,87,63,.22),transparent 60%);transition:background .08s linear}
+  .cine .grain{position:absolute;inset:-50%;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1.2s steps(6) infinite}
+  @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-2%,4%)}80%{transform:translate(4%,2%)}100%{transform:translate(0,0)}}
+  .cine .content{position:relative;z-index:2;width:100%;padding-top:140px;padding-bottom:90px;color:var(--white)}
+  .cine h1 .ln{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em}
+  .cine h1 .ln>span{display:inline-block}
+  .cine .btn{transition:transform .15s,box-shadow .15s,background .2s}
+  .cine .btn.primary{box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 -3px 0 rgba(0,0,0,.25) inset,0 10px 24px rgba(184,50,42,.35)}
+  .cine .btn.primary:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.3) inset,0 -3px 0 rgba(0,0,0,.25) inset,0 16px 30px rgba(184,50,42,.45)}
+  .cine .btn.ghost{background:rgba(255,255,255,.08);box-shadow:0 1px 0 rgba(255,255,255,.2) inset;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .cine .btn.ghost:hover{transform:translateY(-2px);background:rgba(255,255,255,.14)}
+  .cine .btn:active{transform:translateY(1px) scale(.98);box-shadow:0 2px 6px rgba(0,0,0,.3) inset}
+  @media (prefers-reduced-motion:reduce){.cine .grain{animation:none}}
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1000px) {
-      .salles-grid { grid-template-columns: repeat(3, 1fr); }
-      .piliers-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 768px) {
-      nav { padding: 16px 20px; }
-      nav ul { display: none; }
-      section { padding: 70px 24px; }
-      #hero { padding: 110px 24px 60px; }
-      #concept, #pour-qui { grid-template-columns: 1fr; gap: 40px; }
-      .machines-grid { grid-template-columns: 1fr; }
-      .salles-grid { grid-template-columns: 1fr 1fr; }
-      footer { grid-template-columns: 1fr; }
-      .piliers-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  .cine .bar{position:absolute;left:0;right:0;height:50%;background:#081518;z-index:3;pointer-events:none}
+  .cine .bar.top{top:0}.cine .bar.bottom{bottom:0}
+  .cine .light{background:radial-gradient(600px circle at var(--mx,72%) var(--my,35%),rgba(243,181,166,.12),transparent 60%)}
+  .cine .grain{opacity:.05}
+  .cine .kicker{display:flex;align-items:center;gap:14px}
+  .cine .kicker::before{content:"";width:40px;height:1px;background:#F3B5A6}
+  .cine .cue{position:absolute;left:50%;bottom:28px;z-index:2;width:1px;height:56px;background:rgba(255,255,255,.18);overflow:hidden}
+  .cine .cue span{position:absolute;left:0;top:-40%;width:1px;height:40%;background:#F3B5A6;animation:cue 2.2s ease-in-out infinite}
+  @keyframes cue{0%{top:-40%}100%{top:100%}}
+  @media (prefers-reduced-motion:reduce){.cine .bar{display:none}.cine .cue span{animation:none}}
+
+  /* PREMIUM PARTOUT */
+  h2 .ln{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em}
+  h2 .ln>span{display:inline-block}
+  .eyebrow{display:flex;align-items:center;gap:14px}
+  .eyebrow::before{content:"";width:40px;height:1px;background:currentColor;opacity:.8}
+  #piliers,footer{position:relative;overflow:hidden}
+  #piliers::before,footer::before{content:"";position:absolute;inset:-50%;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  #piliers .wrap,footer .wrap{position:relative}
+  .media{overflow:hidden;border-radius:6px}
+  .media>video,.media>img{border-radius:0!important}
+  .nav ul a.cta,.salle .go{box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 -3px 0 rgba(0,0,0,.2) inset,0 8px 18px rgba(184,50,42,.28);transition:transform .15s,box-shadow .15s,background .2s}
+  .nav ul a.cta:hover,.salle:hover .go{transform:translateY(-1px)}
+  .nav ul a.cta:active,.salle:active .go{transform:translateY(1px) scale(.98)}
+
+  /* LUMINA — liste interactive des salles */
+  .lumina{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:stretch}
+  .lum-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(16,42,46,.18)}
+  .lum-row{width:100%;display:grid;grid-template-columns:56px 1fr auto;align-items:baseline;gap:8px;background:none;border:0;border-bottom:1px solid rgba(16,42,46,.18);padding:22px 4px;text-align:left;cursor:pointer;color:var(--ink);font:inherit;transition:padding .35s ease,color .3s}
+  .lum-num{font-family:var(--serif);font-size:1rem;color:var(--ink-soft);transition:color .3s}
+  .lum-name{font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,2.2rem);line-height:1.1;opacity:.45;transition:opacity .35s}
+  .lum-sub{font-size:.85rem;color:var(--ink-soft);opacity:0;transition:opacity .35s}
+  .lum-row:hover .lum-name,.lum-row.on .lum-name{opacity:1}
+  .lum-row.on{padding-left:18px}
+  .lum-row.on .lum-num,.lum-row.on .lum-sub{color:var(--red);opacity:1}
+  .lum-row:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+  .lum-stage{position:relative;min-height:520px;border-radius:6px;overflow:hidden;background:var(--ink)}
+  .lum-media,.lum-media>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .lum-media>*{opacity:0;transform:scale(1.06);transition:opacity .7s ease,transform 1.4s ease}
+  .lum-media>.on{opacity:1;transform:scale(1)}
+  .lum-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,42,46,0) 35%,rgba(16,42,46,.92) 100%);pointer-events:none}
+  .lum-card{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:32px;color:var(--white)}
+  .lum-card-n{color:#F3B5A6;font-weight:600;font-size:.9rem}
+  .lum-card-t{font-family:var(--serif);font-weight:400;font-size:2rem;margin:6px 0 10px}
+  .lum-card-d{max-width:46ch;margin:0 0 22px;opacity:.9}
+  .lum-card>*{transition:opacity .4s,transform .4s}
+  .lum-card.swap>*{opacity:0;transform:translateY(10px)}
+  .lum-go{display:inline-block;text-decoration:none;font-weight:600;color:var(--white);background:var(--red);padding:12px 24px;border-radius:999px;box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 -3px 0 rgba(0,0,0,.2) inset,0 8px 18px rgba(184,50,42,.35);transition:transform .15s,background .2s}
+  .lum-go:hover{background:var(--red-glow);transform:translateY(-1px)}
+  @media (max-width:900px){.lumina{grid-template-columns:1fr;gap:28px}.lum-stage{order:-1;min-height:380px}.lum-sub{display:none}}
+  @media (prefers-reduced-motion:reduce){.lum-media>*,.lum-card>*,.lum-row{transition:none}}
+</style>
 </head>
 <body>
 
-<!-- ══ NAV ══ -->
-<nav>
-  <div class="nav-logo">Regen <span>Center</span></div>
-  <ul>
-    <li><a href="#concept">Notre approche</a></li>
-    <li><a href="#piliers">Les 4 piliers</a></li>
-    <li><a href="#machines">Nos technologies</a></li>
-    <li><a href="#pour-qui">Pour qui ?</a></li>
-    <li><a href="#rdv" class="nav-cta">Prendre RDV</a></li>
-  </ul>
-</nav>
+<header class="nav">
+  <div class="wrap">
+    <a href="#" class="brand"><span class="dot" aria-hidden="true"></span>Regen Center</a>
+    <button class="burger" aria-label="Ouvrir le menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    <ul id="menu">
+      <li><a href="#concept">Notre approche</a></li>
+      <li><a href="#piliers">Les 4 piliers</a></li>
+      <li><a href="#machines">Nos technologies</a></li>
+      <li><a href="#pour-qui">Pour qui ?</a></li>
+      <li><a href="#rdv" class="cta">Prendre RDV</a></li>
+    </ul>
+  </div>
+</header>
 
-<!-- ══ HERO — vidéo promo en fond ══ -->
-<section id="hero">
-  <div class="hero-video-wrap">
-    <video autoplay muted loop playsinline>
-      <source src="video_promo.mp4" type="video/mp4" />
-    </video>
-  </div>
-  <div class="hero-content">
-    <div class="hero-accent"></div>
-    <p class="hero-label">Optimisation mitochondriale · Médecine régénérative</p>
-    <h1 class="hero-title">
-      Votre énergie<br>cellulaire,<br><em>réactivée.</em>
-    </h1>
-    <p class="hero-location">📍 <span>Mudaison</span>, Hérault</p>
-    <p class="hero-sub">
-      Regen Center est le premier centre dédié à l'optimisation mitochondriale — retrouvez vitalité, récupération et longévité grâce à des technologies médicales de précision.
-    </p>
-    <div>
-      <a href="#rdv" class="btn-gold">Prendre rendez-vous</a>
-      <a href="#concept" class="btn-outline">Découvrir →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══ CONCEPT MITO ══ -->
-<section id="concept">
-  <div class="concept-photo">
-    <img src="photo_centre.jpg" alt="Regen Center — le centre" />
-    <div class="concept-photo-overlay"></div>
-  </div>
-  <div class="concept-text">
-    <p class="section-label">Notre approche</p>
-    <h2 class="section-title">La mitochondrie au cœur de tout</h2>
-    <div class="section-line"></div>
-    <p>
-      La mitochondrie est le moteur de chaque cellule de votre corps. Quand elle fonctionne mal, tout en souffre : fatigue chronique, douleurs, inflammation, vieillissement prématuré.
-    </p>
-    <div class="concept-quote">
-      « Optimiser ses mitochondries, c'est optimiser sa vie entière. »
-    </div>
-    <p>
-      Regen Center réunit dans un même lieu un plateau technique exclusif de technologies médicales — validées cliniquement — pour cibler et restaurer la fonction mitochondriale en profondeur.
-    </p>
-    <p>
-      Notre approche est complémentaire au suivi médical : vos praticiens peuvent nous adresser leurs patients dans une démarche intégrative, non-médicamenteuse et sans effets secondaires.
-    </p>
-  </div>
-</section>
-
-<!-- ══ 4 PILIERS ══ -->
-<section id="piliers">
-  <div class="piliers-header">
-    <p class="section-label">Notre protocole</p>
-    <h2 class="section-title">Les 4 piliers Regen Center</h2>
-    <div class="section-line"></div>
-    <p class="section-intro" style="margin: 0 auto;">
-      Quatre axes complémentaires et synergiques pour une régénération cellulaire complète et durable.
-    </p>
-  </div>
-  <div class="piliers-grid">
-    <div class="pilier-card">
-      <div class="pilier-number">01</div>
-      <div class="pilier-icon">💡</div>
-      <div class="pilier-title">Photobiomodulation</div>
-      <p class="pilier-desc">LED médicales et lasers nanopulsés à longueurs d'onde précises stimulent directement la chaîne respiratoire mitochondriale. Augmentation de la production d'ATP, réduction de l'inflammation, récupération accélérée.</p>
-      <span class="pilier-tag">PBM · Laser · LED médicales</span>
-    </div>
-    <div class="pilier-card">
-      <div class="pilier-number">02</div>
-      <div class="pilier-icon">🫁</div>
-      <div class="pilier-title">Oxygénation Hyperbare</div>
-      <p class="pilier-desc">L'OHB augmente la concentration en oxygène dissous dans le plasma, améliorant l'oxygénation des tissus, stimulant la néoangiogenèse et soutenant les processus de régénération cellulaire.</p>
-      <span class="pilier-tag">OHB · Oxygène pressurisé</span>
-    </div>
-    <div class="pilier-card">
-      <div class="pilier-number">03</div>
-      <div class="pilier-icon">🌿</div>
-      <div class="pilier-title">Micro-nutrition</div>
-      <p class="pilier-desc">Chaque mitochondrie a besoin de cofacteurs essentiels : magnésium, CoQ10, vitamines B, oméga-3… Un bilan personnalisé et des protocoles ciblés pour combler les carences qui bloquent votre énergie cellulaire.</p>
-      <span class="pilier-tag">Complémentation · Bilan personnalisé</span>
-    </div>
-    <div class="pilier-card">
-      <div class="pilier-number">04</div>
-      <div class="pilier-icon">🦠</div>
-      <div class="pilier-title">Microbiote Intestinal</div>
-      <p class="pilier-desc">L'axe intestin-cerveau influence directement la santé mitochondriale. Dysbiose, inflammation intestinale et neuro-inflammation sont liées. Nous restaurons l'équilibre du microbiote pour une régénération globale.</p>
-      <span class="pilier-tag">Intestin · Neuro-inflammation</span>
-    </div>
-  </div>
-</section>
-
-<!-- ══ NOS TECHNOLOGIES / VIDÉOS ══ -->
-<section id="machines">
-  <div class="machines-intro">
-    <p class="section-label">Nos équipements</p>
-    <h2 class="section-title">Technologies médicales de précision</h2>
-    <div class="section-line"></div>
-    <p class="section-intro">
-      Des dispositifs professionnels — laser froid nanopulsé, photobiomodulation multi-spectrale, champs magnétiques — pour une action non-invasive au cœur de la cellule.
-    </p>
-  </div>
-  <div class="machines-grid">
-    <div class="machine-video-card">
-      <video autoplay muted loop playsinline>
-        <source src="milta_mp1_final.mp4" type="video/mp4" />
+<!-- HERO -->
+<section class="hero cine" id="top" style="padding:0">
+  <div class="stage">
+    <div class="frame">
+      <video autoplay muted loop playsinline poster="https://www.regencenter.fr/photo_centre.jpg">
+        <source src="https://www.regencenter.fr/video_promo.mp4" type="video/mp4">
       </video>
-      <div class="machine-video-label">
+      <div class="shade"></div>
+      <div class="light" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+    </div>
+    <div class="bar top" aria-hidden="true"></div><div class="bar bottom" aria-hidden="true"></div>
+    <div class="cue" aria-hidden="true"><span></span></div>
+    <div class="wrap content">
+    <p class="kicker">Optimisation mitochondriale · Médecine régénérative</p>
+    <h1><span class="ln"><span>Votre énergie</span></span> <span class="ln"><span>cellulaire,</span></span> <span class="ln"><span><em>réactivée.</em></span></span></h1>
+    <p class="loc">📍 Mudaison, Hérault</p>
+    <p class="lead">Regen Center est le premier centre dédié à l'optimisation mitochondriale — retrouvez vitalité, récupération et longévité grâce à des technologies de précision.</p>
+    <div class="btns">
+      <a href="#rdv" class="btn primary">Prendre rendez-vous</a>
+      <a href="#concept" class="btn ghost">Découvrir →</a>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section id="concept">
+  <div class="wrap grid">
+    <div class="text">
+      <p class="eyebrow">Notre approche</p>
+      <h2><span class="ln"><span>La mitochondrie au cœur de tout</span></span></h2>
+      <p>La mitochondrie est le moteur de chaque cellule de votre corps. Quand elle fonctionne mal, tout en souffre : fatigue chronique, douleurs, inflammation, vieillissement prématuré.</p>
+      <blockquote>« Optimiser ses mitochondries, c'est optimiser sa vie entière. »</blockquote>
+      <p>Regen Center réunit dans un même lieu un plateau technique exclusif de technologies professionnelles pour soutenir la fonction mitochondriale en profondeur.</p>
+      <p>Notre approche est complémentaire au suivi médical : une démarche globale, non-médicamenteuse et non-invasive.</p>
+    </div>
+    <div class="photo media">
+      <img src="https://www.regencenter.fr/photo_centre.jpg" alt="Regen Center — le centre" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- PILIERS -->
+<section id="piliers">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#F3B5A6">Notre protocole</p>
+    <h2><span class="ln"><span>Les 4 piliers Regen Center</span></span></h2>
+    <p class="intro">Quatre axes complémentaires pour une régénération cellulaire complète et durable.</p>
+    <div class="piliers">
+      <div class="pilier">
+        <div class="head"><div class="num">01</div><div class="ico">💡</div></div>
+        <h3>Photobiomodulation</h3>
+        <p>LED professionnelles et lasers nanopulsés à longueurs d'onde précises agissent sur la chaîne respiratoire mitochondriale. Production d'ATP soutenue, récupération accélérée.</p>
+        <div class="tags">PBM · Laser · LED professionnelles</div>
+      </div>
+      <div class="pilier">
+        <div class="head"><div class="num">02</div><div class="ico">🫁</div></div>
+        <h3>Oxygénation Hyperbare</h3>
+        <p>L'OHB augmente la concentration en oxygène dissous dans le plasma. Elle améliore l'oxygénation des tissus et soutient les processus naturels de régénération cellulaire.</p>
+        <div class="tags">OHB · Oxygène pressurisé</div>
+      </div>
+      <div class="pilier">
+        <div class="head"><div class="num">03</div><div class="ico">🌿</div></div>
+        <h3>Micro-nutrition</h3>
+        <p>Chaque mitochondrie a besoin de cofacteurs : magnésium, CoQ10, vitamines B, oméga-3. Un bilan personnalisé et des protocoles ciblés comblent les carences.</p>
+        <div class="tags">Complémentation · Bilan personnalisé</div>
+      </div>
+      <div class="pilier">
+        <div class="head"><div class="num">04</div><div class="ico">🦠</div></div>
+        <h3>Microbiote Intestinal</h3>
+        <p>L'axe intestin-cerveau influence directement la santé mitochondriale. Nous aidons à rééquilibrer votre microbiote intestinal pour soutenir une régénération globale et durable.</p>
+        <div class="tags">Intestin · Neuro-inflammation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MACHINES -->
+<section id="machines">
+  <div class="wrap">
+    <p class="eyebrow">Nos équipements</p>
+    <h2><span class="ln"><span>Technologies de précision</span></span></h2>
+    <p class="intro">Des dispositifs professionnels — laser froid nanopulsé, photobiomodulation multi-spectrale, champs magnétiques — pour une action non-invasive au cœur de la cellule.</p>
+    <div class="machines">
+      <div class="machine">
+        <div class="media"><video autoplay muted loop playsinline><source src="https://www.regencenter.fr/milta_mp1_final.mp4" type="video/mp4"></video></div>
         <h3>MILTA® — Photobiomodulation</h3>
         <p>Combinaison unique de laser froid nanopulsé, LED spectre visible et infrarouge, et champ magnétique statique. Action non-invasive au cœur de la fonction cellulaire.</p>
       </div>
-    </div>
-    <div class="machine-video-card">
-      <video autoplay muted loop playsinline>
-        <source src="milta_2.mp4" type="video/mp4" />
-      </video>
-      <div class="machine-video-label">
+      <div class="machine">
+        <div class="media"><video data-key="milta2" autoplay muted loop playsinline><source src="milta_2_0_femme.mp4" type="video/mp4"></video></div>
         <h3>MILTA® 2.0 — Nouvelle génération</h3>
         <p>Version avancée de la photobiomodulation MILTA, avec protocoles optimisés pour la récupération profonde, le soutien neurologique et la régénération des tissus.</p>
       </div>
@@ -383,141 +343,181 @@
   </div>
 </section>
 
-<!-- ══ GALERIE PHOTO ══ -->
-<section id="galerie">
-  <p class="section-label">Le centre</p>
-  <h2 class="section-title">Nos espaces</h2>
-  <div class="section-line"></div>
-  <p class="section-intro">Un environnement pensé pour le soin, la sérénité et l'efficacité thérapeutique.</p>
-  <div class="galerie-single">
-    <img src="photo_centre.jpg" alt="Regen Center — Mudaison" />
+<!-- ESPACES -->
+<section id="espaces">
+  <div class="wrap">
+    <p class="eyebrow">Le centre</p>
+    <h2><span class="ln"><span>Nos espaces</span></span></h2>
+    <p class="intro">Un environnement pensé pour le soin, la sérénité et l'efficacité thérapeutique.</p>
+    <div class="media"><video data-key="fullbody" autoplay muted loop playsinline><source src="fullbody.mp4" type="video/mp4"></video></div>
   </div>
 </section>
 
-<!-- ══ POUR QUI ══ -->
+<!-- POUR QUI -->
 <section id="pour-qui">
-  <div>
-    <p class="section-label">Notre clientèle</p>
-    <h2 class="section-title">Pour qui ?</h2>
-    <div class="section-line"></div>
-    <p class="section-intro">Regen Center s'adresse à toute personne souhaitant retrouver son énergie, accélérer sa récupération ou prendre soin de sa longévité.</p>
-    <div class="audiences">
-      <div class="audience-item">
-        <div class="audience-icon">🏃</div>
-        <div>
-          <div class="audience-title">Sportifs &amp; Performers</div>
-          <p class="audience-desc">Récupération accélérée, performance optimisée, prévention des blessures et de l'inflammation.</p>
-        </div>
-      </div>
-      <div class="audience-item">
-        <div class="audience-icon">🩺</div>
-        <div>
-          <div class="audience-title">Patients en accompagnement</div>
-          <p class="audience-desc">Douleurs chroniques, fatigue, oncologie de support, endométriose — en complément du suivi médical.</p>
-        </div>
-      </div>
-      <div class="audience-item">
-        <div class="audience-icon">✨</div>
-        <div>
-          <div class="audience-title">Bien-être &amp; Anti-âge</div>
-          <p class="audience-desc">Longévité, vitalité, clarté mentale — pour vieillir mieux et plus lentement.</p>
-        </div>
-      </div>
-      <div class="audience-item">
-        <div class="audience-icon">🧠</div>
-        <div>
-          <div class="audience-title">Surmenage &amp; Burn-out</div>
-          <p class="audience-desc">Stress chronique, épuisement mental, neuro-inflammation — restaurer le système nerveux en profondeur.</p>
-        </div>
+  <div class="wrap">
+    <p class="eyebrow">Notre clientèle</p>
+    <h2><span class="ln"><span>Pour qui ?</span></span></h2>
+    <p class="intro">Regen Center s'adresse à toute personne souhaitant retrouver son énergie, accélérer sa récupération ou prendre soin de sa longévité.</p>
+    <div class="cibles">
+      <div class="cible"><div class="ico">🏃</div><h3>Sportifs &amp; Performers</h3><p>Récupération accélérée, performance optimisée, prévention des blessures.</p></div>
+      <div class="cible"><div class="ico">🩺</div><h3>En complément d'un suivi</h3><p>Fatigue, récupération, énergie — en complément de votre médecin.</p></div>
+      <div class="cible"><div class="ico">✨</div><h3>Bien-être &amp; Anti-âge</h3><p>Longévité, vitalité, clarté mentale — pour vieillir mieux et plus lentement.</p></div>
+      <div class="cible"><div class="ico">🧠</div><h3>Surmenage &amp; Burn-out</h3><p>Stress chronique, épuisement mental — retrouver calme et récupération.</p></div>
+    </div>
+    <div class="media"><video class="pourqui-video" autoplay muted loop playsinline><source src="https://www.regencenter.fr/milta_mp1_final.mp4" type="video/mp4"></video></div>
+  </div>
+</section>
+
+<!-- RDV -->
+<section id="rdv">
+  <div class="wrap">
+    <p class="eyebrow">Réservation en ligne</p>
+    <h2><span class="ln"><span>Choisissez votre salle</span></span></h2>
+    <p class="intro">Sélectionnez la technologie qui correspond à votre besoin et réservez directement votre créneau. Première séance découverte disponible sur chaque lien.</p>
+    <div class="lumina">
+    <ol class="lum-list">
+      <li><button type="button" class="lum-row on" data-i="0" data-href="https://calendly.com/contact-regencenter/salle-1-caisson-hyperbare" data-media="img:https://www.regencenter.fr/photo_centre.jpg" data-desc="Augmentation contrôlée de la pression et de l'apport en oxygène pour une oxygénation renforcée des tissus." data-n="Salle 1" data-t="Caisson HyperBare"><span class="lum-num">01</span><span class="lum-name">Caisson HyperBare</span><span class="lum-sub">Salle 1</span></button></li>
+      <li><button type="button" class="lum-row" data-i="1" data-href="https://calendly.com/contact-regencenter/salle-1-caisson-hyperbare-clone" data-media="clone:milta2" data-desc="Photobiomodulation nouvelle génération — laser froid nanopulsé, LED multi-spectre et champ magnétique statique." data-n="Salle 2" data-t="Milta 2.0"><span class="lum-num">02</span><span class="lum-name">Milta 2.0</span><span class="lum-sub">Salle 2</span></button></li>
+      <li><button type="button" class="lum-row" data-i="2" data-href="https://calendly.com/contact-regencenter/salle-2-milta-2-0-clone" data-media="vid:https://www.regencenter.fr/milta_mp1_final.mp4" data-desc="Photobiomodulation adaptée à la sphère bucco-dentaire et aux soins ciblés des tissus mous." data-n="Salle 3" data-t="Milta 1.0 / MiltaDent"><span class="lum-num">03</span><span class="lum-name">Milta 1.0 / MiltaDent</span><span class="lum-sub">Salle 3</span></button></li>
+      <li><button type="button" class="lum-row" data-i="3" data-href="https://calendly.com/contact-regencenter/salle-3-milta-1-0-miltadent-clone" data-media="vid:https://www.regencenter.fr/video_promo.mp4" data-desc="Photobiomodulation ciblée au niveau crânien — soutien neurophysiologique et équilibre cérébral." data-n="Salle 4" data-t="MiltaHead"><span class="lum-num">04</span><span class="lum-name">MiltaHead</span><span class="lum-sub">Salle 4</span></button></li>
+      <li><button type="button" class="lum-row" data-i="4" data-href="https://calendly.com/contact-regencenter/salle-4-miltahead-clone" data-media="clone:fullbody" data-desc="Photobiomodulation corps entier — récupération et régénération globale par stimulation cellulaire." data-n="Salle 5" data-t="Milta FullBody"><span class="lum-num">05</span><span class="lum-name">Milta FullBody</span><span class="lum-sub">Salle 5</span></button></li>
+    </ol>
+    <div class="lum-stage">
+      <div class="lum-media"></div>
+      <div class="lum-card">
+        <span class="lum-card-n">Salle 1</span>
+        <h3 class="lum-card-t">Caisson HyperBare</h3>
+        <p class="lum-card-d">Augmentation contrôlée de la pression et de l'apport en oxygène pour une oxygénation renforcée des tissus.</p>
+        <a class="lum-go" href="https://calendly.com/contact-regencenter/salle-1-caisson-hyperbare" target="_blank" rel="noopener">Réserver →</a>
       </div>
     </div>
   </div>
-  <div class="pour-qui-video">
-    <video autoplay muted loop playsinline>
-      <source src="milta_mp1_final.mp4" type="video/mp4" />
-    </video>
+    <p class="linktree">Retrouvez tous nos liens sur <a href="https://linktr.ee/regen_center" target="_blank" rel="noopener">linktr.ee/regen_center</a></p>
   </div>
 </section>
 
-<!-- ══ RDV — 5 salles ══ -->
-<section id="rdv">
-  <p class="section-label">Réservation en ligne</p>
-  <h2 class="section-title">Choisissez votre salle</h2>
-  <div class="section-line"></div>
-  <p class="rdv-sub">
-    Sélectionnez la technologie qui correspond à votre besoin et réservez directement votre créneau. Première séance découverte disponible sur chaque lien.
-  </p>
-
-  <div class="salles-grid">
-    <a href="https://calendly.com/contact-regencenter/salle-1-caisson-hyperbare" target="_blank" class="salle-card">
-      <div class="salle-num">Salle 1</div>
-      <div class="salle-name">Caisson HyperBare</div>
-      <p class="salle-desc">Augmentation contrôlée de la pression et de l'apport en oxygène pour une oxygénation renforcée des tissus.</p>
-      <span class="salle-cta">Réserver →</span>
-    </a>
-    <a href="https://calendly.com/contact-regencenter/salle-1-caisson-hyperbare-clone" target="_blank" class="salle-card">
-      <div class="salle-num">Salle 2</div>
-      <div class="salle-name">Milta 2.0</div>
-      <p class="salle-desc">Photobiomodulation nouvelle génération — laser froid nanopulsé, LED multi-spectre et champ magnétique statique.</p>
-      <span class="salle-cta">Réserver →</span>
-    </a>
-    <a href="https://calendly.com/contact-regencenter/salle-2-milta-2-0-clone" target="_blank" class="salle-card">
-      <div class="salle-num">Salle 3</div>
-      <div class="salle-name">Milta 1.0 / MiltaDent</div>
-      <p class="salle-desc">Photobiomodulation adaptée à la sphère bucco-dentaire et aux soins ciblés des tissus mous.</p>
-      <span class="salle-cta">Réserver →</span>
-    </a>
-    <a href="https://calendly.com/contact-regencenter/salle-3-milta-1-0-miltadent-clone" target="_blank" class="salle-card">
-      <div class="salle-num">Salle 4</div>
-      <div class="salle-name">MiltaHead</div>
-      <p class="salle-desc">Photobiomodulation ciblée au niveau crânien — soutien neurophysiologique et équilibre cérébral.</p>
-      <span class="salle-cta">Réserver →</span>
-    </a>
-    <a href="https://calendly.com/contact-regencenter/salle-4-miltahead-clone" target="_blank" class="salle-card">
-      <div class="salle-num">Salle 5</div>
-      <div class="salle-name">Milta FullBody</div>
-      <p class="salle-desc">Photobiomodulation avancée corps entier — récupération et régénération globale par stimulation mitochondriale.</p>
-      <span class="salle-cta">Réserver →</span>
-    </a>
-  </div>
-
-  <div class="rdv-linktree">
-    Retrouvez tous nos liens sur&nbsp;
-    <a href="https://linktr.ee/regen_center" target="_blank">linktr.ee/regen_center</a>
-  </div>
-</section>
-
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-brand">
-    <div class="nav-logo">Regen <span style="color:var(--gold)">Center</span></div>
-    <p>Premier centre dédié à la santé mitochondriale.<br>📍 Mudaison, Hérault — France</p>
-  </div>
-  <div>
-    <h4>Navigation</h4>
-    <ul>
-      <li><a href="#concept">Notre approche</a></li>
-      <li><a href="#piliers">Les 4 piliers</a></li>
-      <li><a href="#machines">Nos technologies</a></li>
-      <li><a href="#pour-qui">Pour qui ?</a></li>
-      <li><a href="#rdv">Prendre RDV</a></li>
-    </ul>
-  </div>
-  <div>
-    <h4>Contact &amp; Réservation</h4>
-    <ul>
-      <li>📧 contact@regencenter.fr</li>
-      <li>📍 Mudaison, Hérault</li>
-      <li style="margin-top:12px"><a href="https://linktr.ee/regen_center" target="_blank">🔗 linktr.ee/regen_center</a></li>
-      <li><a href="https://calendly.com/contact-regencenter/salle-4-miltahead-clone" target="_blank">→ Milta FullBody</a></li>
-      <li><a href="https://calendly.com/contact-regencenter/salle-1-caisson-hyperbare" target="_blank">→ Caisson HyperBare</a></li>
-    </ul>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <p class="fbrand">Regen Center</p>
+        <p>Premier centre dédié à la santé mitochondriale.<br>📍 Mudaison, Hérault — France</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#concept">Notre approche</a></li>
+          <li><a href="#piliers">Les 4 piliers</a></li>
+          <li><a href="#machines">Nos technologies</a></li>
+          <li><a href="#pour-qui">Pour qui ?</a></li>
+          <li><a href="#rdv">Prendre RDV</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact &amp; Réservation</h4>
+        <ul>
+          <li><a href="mailto:contact@regencenter.fr">📧 contact@regencenter.fr</a></li>
+          <li><a href="tel:+33467649002">📞 04 67 64 90 02</a></li>
+          <li>📍 Mudaison, Hérault</li>
+          <li><a href="https://linktr.ee/regen_center" target="_blank" rel="noopener">🔗 linktr.ee/regen_center</a></li>
+          <li><a href="https://calendly.com/contact-regencenter/salle-4-miltahead-clone" target="_blank" rel="noopener">→ Milta FullBody</a></li>
+          <li><a href="https://calendly.com/contact-regencenter/salle-1-caisson-hyperbare" target="_blank" rel="noopener">→ Caisson HyperBare</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">© 2026 Regen Center · SAS · Tous droits réservés | Les séances sont réalisées dans un cadre de bien-être et ne constituent pas des actes médicaux.</div>
   </div>
 </footer>
-<div class="footer-bottom">
-  © 2026 Regen Center · SAS · Tous droits réservés &nbsp;|&nbsp;
-  Les séances sont réalisées dans un cadre de bien-être et ne constituent pas des actes médicaux.
-</div>
 
+<script>
+  document.querySelectorAll('#menu a').forEach(function(a){
+    a.addEventListener('click',function(){document.getElementById('menu').classList.remove('open');});
+  });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hero=document.querySelector('.hero.cine');
+  if(window.matchMedia('(pointer:fine)').matches){
+    hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();hero.style.setProperty('--mx',(e.clientX-r.left)+'px');hero.style.setProperty('--my',(e.clientY-r.top)+'px');});
+  }
+  if(reduce||!window.gsap){document.querySelectorAll('.cine .bar').forEach(function(b){b.style.display='none'});return;}
+  gsap.registerPlugin(ScrollTrigger);
+  var tl=gsap.timeline({defaults:{ease:'power3.out'}});
+  tl.to('.cine .bar.top',{yPercent:-100,duration:1.4,ease:'expo.inOut'},0)
+    .to('.cine .bar.bottom',{yPercent:100,duration:1.4,ease:'expo.inOut'},0)
+    .from('.cine .frame',{scale:1.12,duration:2.2,ease:'power2.out'},0)
+    .from('.cine .kicker',{y:20,opacity:0,duration:.8},.9)
+    .from('.cine h1 .ln>span',{yPercent:110,duration:1.1,stagger:.16},1.05)
+    .from('.cine .loc,.cine .lead',{y:24,opacity:0,duration:.8,stagger:.12},1.6)
+    .from('.cine .btns .btn',{y:20,opacity:0,duration:.7,stagger:.1},1.85)
+    .from('.cine .cue',{opacity:0,duration:.8},2.2);
+  gsap.to('.cine .frame',{scale:.9,borderRadius:28,ease:'none',scrollTrigger:{trigger:'.cine .stage',start:'top top',end:'bottom top',scrub:true}});
+  gsap.to('.cine .content',{y:-80,opacity:0,ease:'none',scrollTrigger:{trigger:'.cine .stage',start:'top top',end:'60% top',scrub:true}});
+})();
+</script>
+
+<script>
+(function(){
+  if(!window.gsap||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var e='power3.out';
+  gsap.utils.toArray('section:not(.hero) h2 .ln>span').forEach(function(el){
+    gsap.from(el,{yPercent:110,duration:1.1,ease:e,scrollTrigger:{trigger:el,start:'top 88%'}});
+  });
+  gsap.utils.toArray('.eyebrow,.intro,#concept .text p,#concept blockquote,.linktree').forEach(function(el){
+    gsap.from(el,{y:22,opacity:0,duration:.9,ease:e,scrollTrigger:{trigger:el,start:'top 90%'}});
+  });
+  ['.piliers','.cibles','.lum-list','.machines'].forEach(function(g){
+    var box=document.querySelector(g);if(!box)return;
+    gsap.from(box.children,{y:36,opacity:0,duration:.9,ease:e,stagger:.12,scrollTrigger:{trigger:box,start:'top 85%'}});
+  });
+  gsap.utils.toArray('.media').forEach(function(m){
+    var inner=m.firstElementChild;
+    gsap.fromTo(m,{clipPath:'inset(12% 6% 12% 6% round 6px)'},{clipPath:'inset(0% 0% 0% 0% round 6px)',ease:'none',scrollTrigger:{trigger:m,start:'top 95%',end:'top 45%',scrub:true}});
+    gsap.fromTo(inner,{scale:1.15},{scale:1,ease:'none',scrollTrigger:{trigger:m,start:'top 95%',end:'bottom top',scrub:true}});
+  });
+})();
+</script>
+<script>setTimeout(function(){if(!window.gsap)document.querySelectorAll('.cine .bar').forEach(function(b){b.style.display='none'})},2500)</script>
+
+<script>
+(function(){
+  var rows=[].slice.call(document.querySelectorAll('.lum-row')),box=document.querySelector('.lum-media'),card=document.querySelector('.lum-card');
+  var els=rows.map(function(r){
+    var m=r.dataset.media,k=m.split(':')[0],v=m.slice(k.length+1),el;
+    if(k==='img'){el=document.createElement('img');el.src=v;el.alt='';}
+    else{el=document.createElement('video');el.muted=true;el.loop=true;el.playsInline=true;el.setAttribute('playsinline','');el.preload='none';
+      if(k==='clone'){var src=document.querySelector('video[data-key="'+v+'"] source');el.dataset.src=src?src.getAttribute('src'):'';}else{el.dataset.src=v;}}
+    box.appendChild(el);return el;});
+  var cur=-1;
+  function show(i){
+    if(i===cur)return;cur=i;
+    rows.forEach(function(r,k){r.classList.toggle('on',k===i);r.setAttribute('aria-pressed',k===i?'true':'false');});
+    els.forEach(function(el,k){
+      if(k===i){if(el.tagName==='VIDEO'){if(!el.src&&el.dataset.src)el.src=el.dataset.src;var p=el.play();if(p&&p.catch)p.catch(function(){});}el.classList.add('on');}
+      else{el.classList.remove('on');if(el.tagName==='VIDEO')el.pause();}
+    });
+    var r=rows[i];card.classList.add('swap');
+    setTimeout(function(){
+      card.querySelector('.lum-card-n').textContent=r.dataset.n;
+      card.querySelector('.lum-card-t').textContent=r.dataset.t;
+      card.querySelector('.lum-card-d').textContent=r.dataset.desc;
+      card.querySelector('.lum-go').href=r.dataset.href;
+      card.classList.remove('swap');
+    },200);
+  }
+  rows.forEach(function(r,k){
+    r.addEventListener('mouseenter',function(){show(k)});
+    r.addEventListener('focus',function(){show(k)});
+    r.addEventListener('click',function(){show(k)});
+  });
+  show(0);
+})();
+</script>
 </body>
 </html>
